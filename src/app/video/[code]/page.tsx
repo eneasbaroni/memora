@@ -4,7 +4,8 @@ export const fetchCache = "force-no-store";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
-const Video = async ({ params: { code } }: { params: { code: string } }) => {
+const Video = async ({ params }: { params: Promise<{ code: string }> }) => {
+    const code = (await params).code;
     const data = await fetch(`${baseUrl}/api/memora/${code}`);
     const res = await data.json();
     return (
