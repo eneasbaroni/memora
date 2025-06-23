@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { connectMongoDB } from "../../../../lib/mongodb";
 import Memora from "../../DAO/models/memora.model";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 export async function GET(
-    req: NextRequest,
+    req: Request,
     { params }: { params: Promise<{ code: string }> }
 ) {
-    const { code } = await params;
+    const code = (await params).code;
 
     const ci = code;
 
