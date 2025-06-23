@@ -6,12 +6,12 @@ const ReasonSection = () => {
             <div className="w-full flex flex-wrap gap-4 mobile:gap-8 items-start justify-center">
                 <div className="w-[30%] tablet:w-[50%] mobile:w-full flex flex-col gap-4 items-center justify-center">
                     <h3 className="text-2xl tablet:text-xl font-safira text-center">
-                        Porque hay recuerdos que merecen hacerse eternos.
+                        Porque hay recuerdos que pueden ser eternos.
                     </h3>
                     <p className="text-center tablet:text-sm">
                         <span className="font-bold">
-                            Mémora instala códigos QR en lápidas, parcelas o
-                            urnas{" "}
+                            Mémora te ofrece códigos QR para instalar en
+                            lápidas, parcelas o urnas{" "}
                         </span>
                         , que, al ser escaneados con un celular, permiten
                         acceder a un video que guarda diversos momentos del ser
