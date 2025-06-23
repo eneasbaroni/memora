@@ -8,9 +8,34 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-raleway: var(--font-raleway);
+  --font-playfair-display: var(--font-playfair-display);
+  --font-moneta: var(--font-moneta);
+  --font-safira: var(--font-safira);
+  --color-mainColor: #c8bfe7;
+  --color-secondaryColor: #9ba192;
+  --color-bgColor: #f4ede4;
 }
+
+@custom-variant notebook {
+  @media (width < 1280px) {
+      @slot;
+  }
+}
+
+@custom-variant tablet {
+  @media (width < 1024px) {
+      @slot;
+  }
+}
+
+
+@custom-variant mobile {
+  @media (width < 768px) {
+      @slot;
+  }
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -22,5 +47,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-raleway);
 }
