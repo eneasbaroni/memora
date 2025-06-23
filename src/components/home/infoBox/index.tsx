@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import Header from "@/components/shared/header";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -65,13 +66,13 @@ const InfoBox = () => {
             <Header />
             <motion.div
                 className="w-full h-auto flex flex-col gap-4 items-center justify-center "
-                variants={variants}
+                variants={variants as any}
                 initial="hidden"
                 animate="visible"
             >
                 <motion.h1
                     className="text-4xl tablet:text-3xl mobile:text-2xl font-safira text-center"
-                    variants={childrenVariants}
+                    variants={childrenVariants as any}
                 >
                     MÉMORA <br />
                     hacemos del amor<span className="font-raleway">; </span>
@@ -79,7 +80,7 @@ const InfoBox = () => {
                 </motion.h1>
                 <motion.h2
                     className="text-lg tablet:text-base mobile:text-sm font-raleway text-center"
-                    variants={childrenVariants}
+                    variants={childrenVariants as any}
                 >
                     Porque hay recuerdos que merecen hacerse eternos.
                 </motion.h2>
@@ -89,11 +90,11 @@ const InfoBox = () => {
                     width={1000}
                     height={1000}
                     className="w-[300px] tablet:w-[200px] mobile:w-[150px] h-[300px] tablet:h-[200px] mobile:h-[150px] z-10 rounded-md"
-                    variants={childrenVariants}
+                    variants={childrenVariants as any}
                 />
                 <motion.div
                     className="w-3xl tablet:w-[90%] px-26 mobile:px-8 py-8 mobile:py-26 border border-black/5 bg-white/40 backdrop-blur-xs rounded-full flex flex-col items-center justify-center"
-                    variants={childrenVariants}
+                    variants={childrenVariants as any}
                 >
                     <h3 className="text-2xl tablet:text-xl font-safira text-center">
                         ¿Qué es Mémora?
