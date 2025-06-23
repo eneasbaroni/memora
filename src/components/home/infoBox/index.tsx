@@ -35,7 +35,7 @@ const InfoBox = () => {
     const container = useRef<HTMLDivElement>(null!);
     const { scrollYProgress } = useScroll({
         target: container,
-        offset: ["start end", "end start"],
+        offset: ["start start", "end start"],
     });
 
     const backgroundPosition = useTransform(
