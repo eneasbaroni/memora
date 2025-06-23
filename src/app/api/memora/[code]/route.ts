@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { connectMongoDB } from "../../../../lib/mongodb";
 import Memora from "../../DAO/models/memora.model";
 import { NextResponse, NextRequest } from "next/server";
