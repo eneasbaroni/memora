@@ -72,7 +72,7 @@ const FaqSection = () => {
                             initial={{ height: 0 }}
                             animate={{ height: item.isOpen ? "auto" : 0 }}
                             transition={{ duration: 0.5 }}
-                            className="overflow-hidden pr-4 w-1/2 tablet:w-full"
+                            className="overflow-hidden pr-4 tablet:pl-4 w-1/2 tablet:w-full"
                         >
                             <p className="text-left tablet:text-sm mobile:text-xs">
                                 {item.answer}

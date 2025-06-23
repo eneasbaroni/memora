@@ -100,15 +100,22 @@ const InfoBox = () => {
                         ¿Qué es Mémora?
                     </h3>
                     <p className="text-center tablet:text-sm">
-                        Mémora es un proyecto que nace del recorrido profundo y
-                        años se dedica a acompañar a personas en duelo, escribir
-                        sobre la experiencia del duelo y coordinar talleres
+                        <span className="font-bold">Mémora </span> es un
+                        proyecto que nace del recorrido profundo y amoroso de
+                        quien lo impulsa, Cecilia Torres desde hace años se
+                        dedica a acompañar a personas en duelo, escribir sobre
+                        la experiencia del duelo y coordinar talleres
                         vivenciales. También inició, en conjunto con otras
                         personas, una fundación para transformar el modo en que
                         nuestra sociedad trata el duelo y a quienes lo
-                        atraviesan. Desde esa experiencia, y con la convicción
-                        de que el recuerdo, también puede ser un recuerdo lindo,
-                        nace esta propuesta sensible y novedosa.
+                        atraviesan.
+                        <br />
+                        Desde esa experiencia, y con la convicción de que{" "}
+                        <span className="font-bold">
+                            el recuerdo, también puede ser
+                        </span>{" "}
+                        un recuerdo lindo, nace esta propuesta sensible y
+                        novedosa.
                     </p>
                 </motion.div>
             </motion.div>
