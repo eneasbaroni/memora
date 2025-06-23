@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { connectMongoDB } from "@/lib/mongodb";
 import { NextResponse, NextRequest } from "next/server";
 import Memora from "../DAO/models/memora.model";
@@ -35,6 +36,7 @@ export async function POST(req: NextRequest) {
 }
 
 /* Get all */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(req: NextRequest) {
     try {
         await connectMongoDB();
