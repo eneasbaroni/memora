@@ -73,7 +73,7 @@ const Admin = () => {
             ) : (
                 <div>
                     <h3 className="text-center mobile:text-xl">
-                        Para acceder al panel debe iniciar sesión
+                        Para acceder al panel debe iniciar sesión con su cuenta
                     </h3>
                     <button
                         className="w-40 mobile: flex gap-2 align-center justify-center bg-[#968ab9] mobile:text-xs items-center text-white rounded-md p-4 mobile:p-2 m-auto mt-4 hover:bg-[#fbfbfb] hover:text-[#968ab9] transition-all duration-300"
