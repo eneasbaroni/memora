@@ -27,27 +27,19 @@ const MemoraList = ({ handleList }: IProps) => {
                 setIsLoading(true);
                 setError(null);
 
-                const url = `/api/memora`;
-                console.log("🚀 Fetching from URL:", url);
-
-                const response = await fetch(url);
-                console.log("🚀 Response status:", response.status);
+                const response = await fetch(`/api/memora`);
 
                 if (!response.ok) {
-                    const errorData = await response.json().catch(() => ({}));
-                    console.error("🚀 Server error:", errorData);
                     throw new Error(
                         `Error ${response.status}: ${response.statusText}`
                     );
                 }
 
                 const data: IMemora[] = await response.json();
-                console.log("🚀 Data received:", data);
                 setInfo(data);
             } catch (err) {
                 const errorMsg =
                     err instanceof Error ? err.message : String(err);
-                console.error("🚀 Error al obtener memoras:", errorMsg);
                 setError(`Error al cargar la información: ${errorMsg}`);
                 setInfo([]);
             } finally {
