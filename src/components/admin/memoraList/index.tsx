@@ -19,12 +19,33 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const MemoraList = ({ handleList }: IProps) => {
     const [info, setInfo] = useState<IMemora[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     // Fetch data from API
     useEffect(() => {
-        fetch(`${baseUrl}/api/memora`)
-            .then((response) => response.json())
-            .then((data: IMemora[]) => setInfo(data));
+        const fetchData = async () => {
+            try {
+                setIsLoading(true);
+                setError(null);
+                const response = await fetch(`${baseUrl}/api/memora`);
+
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.statusText}`);
+                }
+
+                const data: IMemora[] = await response.json();
+                setInfo(data);
+            } catch (err) {
+                console.error("Error al obtener memoras:", err);
+                setError("Error al cargar la información. Intenta nuevamente.");
+                setInfo([]);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchData();
     }, []);
 
     return (
@@ -39,7 +60,17 @@ const MemoraList = ({ handleList }: IProps) => {
                 <button className="absolute top-4 right-4" onClick={handleList}>
                     X
                 </button>
-                {info && <Info info={info} />}
+                {isLoading ? (
+                    <div className="w-full h-full flex items-center justify-center">
+                        <p className="text-lg">Cargando información...</p>
+                    </div>
+                ) : error ? (
+                    <div className="w-full h-full flex items-center justify-center">
+                        <p className="text-lg text-red-600">{error}</p>
+                    </div>
+                ) : (
+                    <Info info={info} />
+                )}
             </motion.div>
         </div>
     );
