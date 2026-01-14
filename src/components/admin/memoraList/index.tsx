@@ -15,8 +15,6 @@ interface IMemora {
     link: string;
 }
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
 const MemoraList = ({ handleList }: IProps) => {
     const [info, setInfo] = useState<IMemora[]>([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -29,9 +27,8 @@ const MemoraList = ({ handleList }: IProps) => {
                 setIsLoading(true);
                 setError(null);
 
-                const url = `${baseUrl}/api/memora`;
+                const url = `/api/memora`;
                 console.log("🚀 Fetching from URL:", url);
-                console.log("🚀 BASE_URL:", baseUrl);
 
                 const response = await fetch(url);
                 console.log("🚀 Response status:", response.status);
