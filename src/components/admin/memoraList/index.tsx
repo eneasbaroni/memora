@@ -20,33 +20,33 @@ const MemoraList = ({ handleList }: IProps) => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
+    const fetchData = async () => {
+        try {
+            setIsLoading(true);
+            setError(null);
+
+            const response = await fetch(`/api/memora`);
+
+            if (!response.ok) {
+                throw new Error(
+                    `Error ${response.status}: ${response.statusText}`
+                );
+            }
+
+            const data: IMemora[] = await response.json();
+            setInfo(data);
+        } catch (err) {
+            const errorMsg =
+                err instanceof Error ? err.message : String(err);
+            setError(`Error al cargar la información: ${errorMsg}`);
+            setInfo([]);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     // Fetch data from API
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setIsLoading(true);
-                setError(null);
-
-                const response = await fetch(`/api/memora`);
-
-                if (!response.ok) {
-                    throw new Error(
-                        `Error ${response.status}: ${response.statusText}`
-                    );
-                }
-
-                const data: IMemora[] = await response.json();
-                setInfo(data);
-            } catch (err) {
-                const errorMsg =
-                    err instanceof Error ? err.message : String(err);
-                setError(`Error al cargar la información: ${errorMsg}`);
-                setInfo([]);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
         fetchData();
     }, []);
 
@@ -71,7 +71,7 @@ const MemoraList = ({ handleList }: IProps) => {
                         <p className="text-lg text-red-600">{error}</p>
                     </div>
                 ) : (
-                    <Info info={info} />
+                    <Info info={info} onRefresh={fetchData} />
                 )}
             </motion.div>
         </div>
